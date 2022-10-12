@@ -19,7 +19,7 @@ var (
 )
 
 // decompress raw lzstring bytes.
-func DecompressBytes(data []byte) (decompressed string, err error) {
+func Decompress(data []byte) (decompressed string, err error) {
 	br := &byteBitReader{Bytes: data}
 	res, err := decompress(br)
 	if err != nil {
@@ -38,7 +38,7 @@ func DecompressBase64(src string) (decompressed string, err error) {
 	if err != nil {
 		return
 	}
-	return DecompressBytes(data)
+	return Decompress(data)
 }
 
 // a bit reader. returns n bits from the stream.
